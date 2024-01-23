@@ -21,7 +21,7 @@ def home():
 
 @app.route("/")
 def hints():
-  return render_template("")
+  return render_template("hints.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
