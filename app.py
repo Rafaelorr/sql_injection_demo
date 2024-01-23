@@ -3,7 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/create_acount")
 def home():
     if request.method == "POST":
         naam = request.form.get('gebruikersnaam')
@@ -15,8 +15,12 @@ def home():
         try:
             cur.execute('SELECT * FROM users')
         except:
-            return render_template("")
+            return render_template("succes.html")
     return render_template("home.html")
+
+@app.route("/")
+def hints():
+  return render_template("")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
