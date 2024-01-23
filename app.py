@@ -15,9 +15,9 @@ def home():
     con.commit()
     try:
       cur.execute('SELECT * FROM users')
-      return render_template("home.html")
     except:
       return render_template("succes.html")
+    return render_template("home.html")
   return render_template("home.html")
 
 @app.route("/")
