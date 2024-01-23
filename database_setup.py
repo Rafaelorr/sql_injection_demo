@@ -19,5 +19,11 @@ con.commit()
 cur.execute('INSERT into users VALUEs(3,"jeff","password123")')
 con.commit()
 
+cur.execute('INSERT into users VALUES(4,"john","potatoes")')
+con.commit()
+
+cur.execute('INSERT into users VALUES(5,"ayko","tomatoes")')
+con.commit()
+
 cur.close()
 con.close()
