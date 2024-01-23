@@ -12,6 +12,7 @@ def home():
       con = sqlite3.connect('drop.db')
       cur = con.cursor()
       cur.executescript(f'INSERT into users (naam,wachtwoord) VALUES("{naam}","{wachtwoord}")')
+      con.commit()
       try:
           cur.execute('SELECT * FROM users')
       except:
