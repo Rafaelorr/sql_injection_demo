@@ -5,18 +5,18 @@ app = Flask(__name__)
 
 @app.route("/create_acount")
 def home():
-    if request.method == "POST":
-        naam = request.form.get('gebruikersnaam')
-        wachtwoord = request.form.get('wachtwoord')
-        # voeg user toe aan database
-        con = sqlite3.connect('drop.db')
-        cur = con.cursor()
-        cur.executescript(f'INSERT into users (naam,wachtwoord) VALUES("{naam}","{wachtwoord}")')
-        try:
-            cur.execute('SELECT * FROM users')
-        except:
-            return render_template("succes.html")
-    return render_template("home.html")
+  if request.method == "POST":
+      naam = request.form.get('gebruikersnaam')
+      wachtwoord = request.form.get('wachtwoord')
+      # voeg user toe aan database
+      con = sqlite3.connect('drop.db')
+      cur = con.cursor()
+      cur.executescript(f'INSERT into users (naam,wachtwoord) VALUES("{naam}","{wachtwoord}")')
+      try:
+          cur.execute('SELECT * FROM users')
+      except:
+          return render_template("succes.html")
+  return render_template("home.html")
 
 @app.route("/")
 def hints():
