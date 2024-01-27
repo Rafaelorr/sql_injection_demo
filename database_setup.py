@@ -24,6 +24,8 @@ cur.execute('INSERT into users VALUES(4,"john","potatoes")')
 con.commit()
 
 cur.execute('INSERT into users VALUES(5,"ayko","tomatoes")')
+
+# save de veranderingen in de database
 con.commit()
 
 cur.close()
