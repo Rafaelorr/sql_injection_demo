@@ -7,7 +7,7 @@ cur = con.cursor()
 cur.execute('DROP TABLE users')
 con.commit()
 
-# voeg sampel data toe
+# voeg de users table toe
 cur.execute('CREATE TABLE users (id INTEGER AUTO INCREMENT PRIMARY KEY, naam TEXT, wachtwoord TEXT)')
 con.commit()
 
