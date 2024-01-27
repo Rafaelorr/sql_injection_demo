@@ -20,8 +20,11 @@ def home():
     try:
       cur.execute('SELECT * FROM users')
       return render_template('faal.html')
-    except:
+    except sqlite3.OperationalError:
       return render_template("succes.html")
+    except:
+      return render_template("home.html")
+
   return render_template("home.html")
 
 @app.route("/")
