@@ -11,13 +11,13 @@ def home():
     # voeg user toe aan database
     con = sqlite3.connect('drop.db')
     cur = con.cursor()
-    cur.executescript(f'INSERT into users (naam,wachtwoord) VALUES("{naam}","{wachtwoord}")')
+    cur.executescript("INSERT into users (naam,wachtwoord) VALUES(" + naam + "," + wachtwoord + ")")
     con.commit()
     try:
       cur.execute('SELECT * FROM users')
-      return render_template("home.html")
     except:
       return render_template("succes.html")
+    return render_template("home.html")
   return render_template("home.html")
 
 @app.route("/")
@@ -25,4 +25,4 @@ def hints():
   return render_template("hints.html")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+  app.run(host='0.0.0.0',debug=True)
