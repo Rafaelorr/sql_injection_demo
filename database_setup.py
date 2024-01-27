@@ -10,6 +10,7 @@ con.commit()
 cur.execute('CREATE TABLE users (id INTEGER AUTO INCREMENT PRIMARY KEY, naam TEXT, wachtwoord TEXT)')
 con.commit()
 
+# voeg sampel data toe
 cur.execute('INSERT into users VALUES(1,"admin","root")')
 con.commit()
 
