@@ -3,6 +3,7 @@ import sqlite3
 con = sqlite3.connect('drop.db')
 cur = con.cursor()
 
+# verwijder de users table
 cur.execute('DROP TABLE users')
 con.commit()
 
