@@ -17,11 +17,16 @@ def home():
     con.commit()
 
     # sql injection dection
+      # faal dection
     try:
       cur.execute('SELECT * FROM users')
       return render_template('faal.html')
+      
+      # succes dection
     except sqlite3.OperationalError:
       return render_template("succes.html")
+    
+      # fail save
     except:
       return render_template("home.html")
 
@@ -31,5 +36,6 @@ def home():
 def hints():
   return render_template("hints.html")
 
+# maak debug False
 if __name__ == "__main__":
   app.run(host='0.0.0.0',debug=True)
