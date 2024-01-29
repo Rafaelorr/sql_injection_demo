@@ -3,7 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route("/create_acount")
+@app.route("/create_acount",methods=["GET","POST"])
 def home():
   if request.method == "POST":
     # neem de data van het account create form
