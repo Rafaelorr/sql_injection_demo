@@ -11,7 +11,7 @@ def home():
     wachtwoord = request.form.get('wachtwoord')
 
     # voeg user toe aan database
-    con = sqlite3.connect('drop.db')
+    con = sqlite3.connect('database.db')
     cur = con.cursor()
     cur.executescript("INSERT into users (naam,wachtwoord) VALUES(" + naam + "," + wachtwoord + ")")
     con.commit()
