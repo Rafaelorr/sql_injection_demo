@@ -6,29 +6,21 @@ app = Flask(__name__)
 @app.route("/login",methods=["GET","POST"])
 def home():
   if request.method == "POST":
-    # neem de data van het account create form
+    # neem de data van het login form
     naam = request.form.get('gebruikersnaam')
     wachtwoord = request.form.get('wachtwoord')
 
     # voeg user toe aan database
     con = sqlite3.connect('database.db')
     cur = con.cursor()
-    cur.executescript("INSERT into users (naam,wachtwoord) VALUES(" + naam + "," + wachtwoord + ")")
-    con.commit()
 
-    # sql injection dection
-      # faal dection
-    try:
-      cur.execute('SELECT * FROM users')
-      return render_template('faal.html')
-      
-      # succes dection
-    except sqlite3.OperationalError:
-      return render_template("succes.html")
-    
-      # fail save
-    except:
-      return render_template("login.html")
+    # select sql statement
+    cur.execute()
+    # check dat gebruiker wachtwoord == database wachtwoord
+     # als ze gelijk zijn aan elkaar dan return render_template("succes.html")
+     # als ze niet gelijk zijn aan elkaar dan return render_template("faal.html")
+
+    return render_template("login.html")
 
   return render_template("login.html")
 
