@@ -1,0 +1,18 @@
+body{
+    background-color: aqua;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    position: relative;
+    height: 30px;
+    left: 220px;
+    bottom: -100px;
+}
+button{
+    position: relative;
+    left: 220px;
+    height: 35px;
+    bottom: -100px;
+    background-color: rgb(21, 252, 252);
+    border-color: rgb(21, 252, 252);
+}
