@@ -28,9 +28,9 @@ def home():
     
       # fail save
     except:
-      return render_template("home.html")
+      return render_template("login.html")
 
-  return render_template("home.html")
+  return render_template("login.html")
 
 @app.route("/")
 def hints():
