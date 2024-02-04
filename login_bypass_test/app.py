@@ -21,7 +21,6 @@ def home():
      # als ze niet gelijk zijn aan elkaar dan return render_template("faal.html")
 
     return render_template("login.html")
-
   return render_template("login.html")
 
 @app.route("/")
