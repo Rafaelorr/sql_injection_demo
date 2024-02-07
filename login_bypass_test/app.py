@@ -1,6 +1,12 @@
 from flask import Flask,render_template,request
 import sqlite3
 
+def query_to_string(result:list) -> str:
+  result = result[0]
+  result = result[1]
+  result = str(result)
+  return result
+
 app = Flask(__name__)
 
 @app.route("/login",methods=["GET","POST"])
@@ -16,7 +22,7 @@ def home():
     # select sql statement
     cur.execute("SELECT wachtwoord FROM gebruikers WHERE naam=" + naam +"")
     database_wachtwoord = cur.fetchone()
-    database_wachtwoord = database_wachtwoord[0]
+    database_wachtwoord = query_to_string(database_wachtwoord)
 
     if wachtwoord == database_wachtwoord:
       return render_template("succes.html")
