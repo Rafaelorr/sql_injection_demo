@@ -10,15 +10,18 @@ def home():
     naam = request.form.get('gebruikersnaam')
     wachtwoord = request.form.get('wachtwoord')
 
-    # voeg user toe aan database
     con = sqlite3.connect('/login_bypass_test/database.db')
     cur = con.cursor()
 
     # select sql statement
-    cur.execute()
-    # check dat gebruiker wachtwoord == database wachtwoord
-     # als ze gelijk zijn aan elkaar dan return render_template("succes.html")
-     # als ze niet gelijk zijn aan elkaar dan return render_template("faal.html")
+    cur.execute("SELECT wachtwoord FROM gebruikers WHERE naam=" + naam +"")
+    database_wachtwoord = cur.fetchone()
+    database_wachtwoord = database_wachtwoord[0]
+
+    if wachtwoord == database_wachtwoord:
+      return render_template("succes.html")
+    elif wachtwoord != database_wachtwoord:
+      return render_template("faal.html")
 
     return render_template("login.html")
   return render_template("login.html")
