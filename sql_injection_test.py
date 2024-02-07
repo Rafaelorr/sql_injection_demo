@@ -8,7 +8,14 @@ gebruikers(id INTEGER PRIMARY KEY, naam TEXT, wachtwoord TEXT)"""
 
 cursor.execute(command1)
 
-data = (454888888, 'test_2','test_2')
+# voeg sampel data toe aan database
+data = (1,'test_1','test_1')
+cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+data = (2,'test_2','test_2')
+cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+data = (3,'admin','root')
+cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+data = (4,'jefke','patato')
 cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
 con.commit()
 
