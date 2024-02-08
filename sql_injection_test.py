@@ -3,21 +3,21 @@ import sqlite3
 con = sqlite3.connect('dev.db')
 cursor = con.cursor()
 
-# cursor.execute('DROP table gebruikers')
-# # create gebruikers table
-# command1 = """CREATE TABLE IF NOT EXISTS
-# gebruikers(id INTEGER, naam TEXT, wachtwoord TEXT)"""
-# cursor.execute(command1)
+cursor.execute('DROP table gebruikers')
+# create gebruikers table
+command1 = """CREATE TABLE IF NOT EXISTS
+gebruikers(id INTEGER, naam TEXT, wachtwoord TEXT)"""
+cursor.execute(command1)
 
 # voeg sampel data toe aan database
 data = (1,'test_1','test_1')
-cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
 data = (2,'test_2','test_2')
-cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
 data = (3,'admin','root')
-cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
 data = (4,'jefke','patato')
-cursor.execute("INSERT INTO gebruikers VALUES(?, ?, ?)", data)
+cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
 con.commit()
 
 # login bypass payload
