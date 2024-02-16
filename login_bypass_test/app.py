@@ -2,9 +2,9 @@ from flask import Flask,render_template,request
 import sqlite3
 
 def query_to_string(result:list) -> str:
-  result = result[0]
-  result = result[1]
-  result = str(result)
+  result:list = result[0]
+  result:tuple = result[1]
+  result:str = str(result)
   return result
 
 app = Flask(__name__)
@@ -13,16 +13,16 @@ app = Flask(__name__)
 def home():
   if request.method == "POST":
     # neem de data van het login form
-    naam = request.form.get('gebruikersnaam')
-    wachtwoord = request.form.get('wachtwoord')
+    naam:str = request.form.get('gebruikersnaam')
+    wachtwoord:str = request.form.get('wachtwoord')
 
-    con = sqlite3.connect('/login_bypass_test/database.db')
-    cur = con.cursor()
+    con:sqlite3.Connection = sqlite3.connect('/login_bypass_test/database.db')
+    cur:sqlite3.Cursor = con.cursor()
 
     # select sql statement
     cur.execute("SELECT wachtwoord FROM gebruikers WHERE naam=" + naam +"")
-    database_wachtwoord = cur.fetchone()
-    database_wachtwoord = query_to_string(database_wachtwoord)
+    database_wachtwoord:list = cur.fetchone()
+    database_wachtwoord:str = query_to_string(database_wachtwoord)
 
     if wachtwoord == database_wachtwoord:
       return render_template("succes.html")
