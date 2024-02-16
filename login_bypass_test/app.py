@@ -16,7 +16,7 @@ def home():
     naam:str = request.form.get('gebruikersnaam')
     wachtwoord:str = request.form.get('wachtwoord')
 
-    con:sqlite3.Connection = sqlite3.connect('/login_bypass_test/database.db')
+    con:sqlite3.Connection = sqlite3.connect('database.db')
     cur:sqlite3.Cursor = con.cursor()
 
     # select sql statement
