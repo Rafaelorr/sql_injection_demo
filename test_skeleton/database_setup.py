@@ -1,7 +1,7 @@
 import sqlite3
 
-con = sqlite3.connect('database.db')
-cur = con.cursor()
+con:sqlite3.Connection = sqlite3.connect('database.db')
+cur:sqlite3.Cursor = con.cursor()
 
 # verwijder de users table
 cur.execute('DROP TABLE users')
