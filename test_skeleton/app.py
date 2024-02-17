@@ -7,12 +7,12 @@ app = Flask(__name__)
 def home():
   if request.method == "POST":
     # neem de data van het account create form
-    naam = request.form.get('gebruikersnaam')
-    wachtwoord = request.form.get('wachtwoord')
+    naam:str = request.form.get('gebruikersnaam')
+    wachtwoord:str = request.form.get('wachtwoord')
 
     # voeg user toe aan database
-    con = sqlite3.connect('database.db')
-    cur = con.cursor()
+    con:sqlite3.Connection = sqlite3.connect('database.db')
+    cur:sqlite3.Cursor = con.cursor()
     cur.executescript("INSERT into users (naam,wachtwoord) VALUES(" + naam + "," + wachtwoord + ")")
     con.commit()
 
