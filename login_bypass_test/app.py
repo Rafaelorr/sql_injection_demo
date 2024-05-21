@@ -1,12 +1,6 @@
 from flask import Flask,render_template,request
 import sqlite3
 
-def query_to_string(result:list) -> str:
-  result:list = result[0]
-  result:tuple = result[1]
-  result:str = str(result)
-  return result
-
 app = Flask(__name__)
 
 @app.route("/login",methods=["GET","POST"])
@@ -20,13 +14,13 @@ def home():
     cur:sqlite3.Cursor = con.cursor()
 
     # select sql statement
-    cur.execute("SELECT wachtwoord FROM gebruikers WHERE naam=" + naam +"")
-    database_wachtwoord:list = cur.fetchone()
-    database_wachtwoord:str = query_to_string(database_wachtwoord)
+    cur.execute("SELECT count(*) FROM users WHERE naam="+ naam +" AND wachtwoord="+ wachtwoord+"")
+    database_wachtwoord = cur.fetchone()
+    database_wachtwoord = database_wachtwoord[0]
 
-    if wachtwoord == database_wachtwoord:
+    if database_wachtwoord >= 1:
       return render_template("succes.html")
-    elif wachtwoord != database_wachtwoord:
+    elif database_wachtwoord < 0:
       return render_template("faal.html")
 
     return render_template("login.html")
