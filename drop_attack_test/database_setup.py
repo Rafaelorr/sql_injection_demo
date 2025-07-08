@@ -4,7 +4,7 @@ con:sqlite3.Connection = sqlite3.connect('database.db')
 cur:sqlite3.Cursor = con.cursor()
 
 # verwijder de users table
-cur.execute('DROP TABLE users')
+cur.execute('DROP TABLE IF EXISTS users;')
 
 # voeg de users table toe
 cur.execute('CREATE TABLE users (id INTEGER AUTO INCREMENT PRIMARY KEY, naam TEXT, wachtwoord TEXT)')
