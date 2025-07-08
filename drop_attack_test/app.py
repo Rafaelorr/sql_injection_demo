@@ -6,29 +6,29 @@ app = Flask(__name__)
 @app.route("/create_acount",methods=["GET","POST"])
 def home():
   if request.method == "POST":
-    #* neem de data van het account create form
     naam:str = request.form.get('gebruikersnaam')
     wachtwoord:str = request.form.get('wachtwoord')
 
-    #* voeg user toe aan database
+    # voeg user toe aan database
     con:sqlite3.Connection = sqlite3.connect('database.db')
     cur:sqlite3.Cursor = con.cursor()
-    # ! error op de volgende lijn als je sql injection probeert te doen
-    cur.executescript("INSERT into users (naam,wachtwoord) VALUES(" + naam + "," + wachtwoord + ")")
+
+    cur.executescript(f"INSERT into users (naam,wachtwoord) VALUES('{naam}','{wachtwoord}')")
+    print("Voeg gebruiker toe, " + naam)
     con.commit()
 
-    # sql injection dection
-    #* faal dection
-    try:
+    cur.execute('SELECT * FROM users')
+    res = cur.fetchall()
+    print(res)
+
+    if res:
       cur.execute('SELECT * FROM users')
       return render_template('faal.html')
-      
-    #* succes dection
-    except sqlite3.OperationalError:
+
+    elif res == None:
       return render_template("succes.html")
-    
-    #* fail save
-    except:
+
+    else:
       return render_template("home.html")
 
   return render_template("home.html")
