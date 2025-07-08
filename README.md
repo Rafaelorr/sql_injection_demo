@@ -1,3 +1,4 @@
+**English version:**
 # Flask SQL Injection Demos
 
 A collection of intentionally vulnerable Flask web applications designed to demonstrate and practice SQL injection attacks. Perfect for educational, testing, and research purposes. Self-hostable with Docker.
@@ -97,5 +98,109 @@ Contributions are welcome! Please open pull requests or issues for:
 ## License
 
 GPL-3.0 License. See [LICENSE](LICENSE) for details.
+
+---
+
+**Nederlandse versie:**
+# Flask SQL-injectiedemo's
+
+Een verzameling opzettelijk kwetsbare Flask-webapplicaties, ontworpen om SQL-injectieaanvallen te demonstreren en te oefenen. Perfect voor educatieve, test- en onderzoeksdoeleinden. Zelf te hosten met Docker.
+
+---
+
+## 🚨 Disclaimer
+
+> **Dit project is uitsluitend bedoeld voor educatieve en juridische penetratietests. Implementeer of stel deze applicaties niet bloot aan het openbare internet. Gebruik ze alleen in gecontroleerde, geïsoleerde omgevingen.**
+
+---
+
+## Features
+
+- Meerdere kwetsbare Flask-apps, elk met verschillende SQL-injectiescenario's.
+- Eenvoudige, modulaire structuur voor eenvoudige uitbreiding en aanpassing.
+
+---
+
+## Inhoudsopgave
+
+- [Aan de slag](#aan-de-slag)
+- [Beschikbare kwetsbare apps](#beschikbare-kwetsbare-apps)
+- [Gebruik](#gebruik)
+- [Uitbreiden](#uitbreiden)
+- [Antwoorden](#antwoorden)
+- [Bijdragen](#bijdragen)
+- [License](#licentie)
+
+---
+
+## Aan de slag
+
+### Vereisten
+
+python3 en flask of docker (niet getest)
+
+### Snel starten
+
+```bash
+git clone https://github.com/Rafaelorr/sql_injection_demo.git
+cd sql_injection_demo
+cd SCENARIO_NAME
+python3 app.py
+```
+
+---
+
+## Beschikbare kwetsbare apps
+
+| App-naam      | Beschrijving                                        |
+|:-------------:|:---------------------------------------------------:|
+| `login bypass`| Eenvoudige SQL-injectie (login bypass)              |
+| `drop attack` | Verwijder de tabel *users* met het aanmeldformulier |
+
+---
+
+## Gebruik
+
+- Interactie met elke kwetsbare app via je browser of tools zoals `curl`.
+- Probeer verschillende SQL-injectietechnieken op de formulieren en parameters.
+
+---
+
+## Uitbreiden
+
+Wil je een nieuwe kwetsbare app toevoegen?
+
+1. Kopieer de map test_skeleton als sjabloon.
+2. Implementeer je nieuwe kwetsbaarheid als een Flask-app.
+3. Werk de README bij.
+
+---
+
+## Antwoorden
+
+Deze sectie bevat voorgestelde antwoorden en uitleg voor elk kwetsbaar scenario.
+
+Gebruik deze om je begrip te testen of voor educatieve walkthroughs.
+
+| App-naam        | Voorbeeldaanval/invoer          | Verwacht resultaat/uitleg                    |
+|:---------------:|:-------------------------------:|:--------------------------------------------:|
+| login bypass    | `admin' --`                     | Omzeilt authenticatie; logt in als admin.    |
+| drop attack     | `test'); DROP TABLE users; -- ` | Verwijdert de tabel *users* uit de database. |
+
+---
+
+## Bijdragen
+
+Bijdragen zijn welkom! Open pull requests of issues voor:
+
+- Nieuwe kwetsbare apps
+- Bugfixes
+- Verbeteringen in de documentatie
+
+---
+
+## Licentie
+
+GPL-3.0-licentie. Zie [LICENSE](LICENSE) voor details.
 
 ---
