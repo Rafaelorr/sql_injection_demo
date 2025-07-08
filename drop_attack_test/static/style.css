@@ -1,18 +1,62 @@
-body{
-    background-color: aqua;
+body {
+    background: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
-input{
-    position: relative;
-    height: 30px;
-    left: 220px;
-    bottom: -100px;
+  
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
 }
-button{
-    position: relative;
-    left: 220px;
-    height: 35px;
-    bottom: -100px;
-    background-color: rgb(21, 252, 252);
-    border-color: rgb(21, 252, 252);
+
+main p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: white;
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: #1e2a33;
+    color: #ffff;
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
+}
+
+button {
+    padding: 10px 140px;
+    font-size: 1rem;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    color: #002b36;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.3);
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: lightblue;
 }
