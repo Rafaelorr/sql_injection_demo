@@ -14,12 +14,10 @@ def home():
     cur:sqlite3.Cursor = con.cursor()
 
     cur.execute(f"INSERT into users (naam,wachtwoord) VALUES('{naam}','{wachtwoord}')")
-    print("Voeg gebruiker toe, " + naam)
     con.commit()
 
     cur.execute('SELECT * FROM users')
     res = cur.fetchall()
-    print(res)
 
     if res:
       cur.execute('SELECT * FROM users')
@@ -37,6 +35,5 @@ def home():
 def hints():
   return render_template("hints.html")
 
-# TODO: maak debug False
 if __name__ == "__main__":
-  app.run(host='0.0.0.0',debug=True)
+  app.run(host='0.0.0.0',debug=False)
