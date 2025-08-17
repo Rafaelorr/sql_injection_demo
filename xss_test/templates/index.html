@@ -1,27 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Blog</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>Mijn Blog</title>
 </head>
 <body>
-    <h1>Mijn Blog</h1>
-    <p>Dit is een eenvoudige blog post. Als je wilt kun je een comment laten!</p>
-    <h2>Comments</h2>
+  <main>
+    <header>
+      <h1>Mijn Blog</h1>
+    </header>
 
-    <form action="/add_comment" method="POST">
-        <label for="comment">Voeg een comment toe:</label><br>
-        <textarea name="comment" id="comment" rows="4" cols="50" required></textarea><br><br>
-        <button type="submit">Post Comment</button>
-    </form>
+    <section class="blog-post">
+      <p>Dit is een eenvoudige blog post. Als je wilt kun je een comment achterlaten!</p>
+    </section>
 
-    <h3>Alle Comments:</h3>
+    <section class="comment-form">
+      <h2>Laat een reactie achter</h2>
+      <form action="/add_comment" method="POST">
+        <div>
+          <label for="comment">Je comment:</label><br />
+          <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+        </div>
+        <div>
+          <button type="submit">Plaats reactie</button>
+        </div>
+      </form>
+    </section>
 
-    {% for comment in comments %}
-    <div>
+    <section class="comments">
+      <h3>Alle reacties</h3>
+      {% for comment in comments %}
+      <article class="comment">
         <p>{{ comment | safe }}</p>
-    </div>
-    {% endfor %}
+      </article>
+      {% endfor %}
+    </section>
+  </main>
 </body>
 </html>
