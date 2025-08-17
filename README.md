@@ -53,6 +53,7 @@ python3 app.py
 |:-------------:|:-----------------------------------:|
 | `login bypass`| Basic SQL injection (login bypass)  |
 | `drop attack` | Drop the *users* table with the sign up form |
+| `xss test`    | Insert javascript in the comments|
 
 ---
 
@@ -82,6 +83,7 @@ Use these to check your understanding or for educational walkthroughs.
 |:--------------:|:-------------------------------:|-----------------------------------------------|
 | login bypass   | `admin' --`                     | Bypasses authentication; logs in as admin.    |
 | drop attack    | `test'); DROP TABLE users; -- ` | Deletes the *users* table from the database.  |
+| xss test       | `<script>alert(1)</script>`     | Excute *alert(1)* when the page is loaded.    |
 
 ---
 
@@ -156,6 +158,7 @@ python3 app.py
 |:-------------:|:---------------------------------------------------:|
 | `login bypass`| Eenvoudige SQL-injectie (login bypass)              |
 | `drop attack` | Verwijder de tabel *users* met het aanmeldformulier |
+| `xss test`    | Voeg javascript toe aan de comments                 |
 
 ---
 
@@ -186,6 +189,7 @@ Gebruik deze om je begrip te testen of voor educatieve walkthroughs.
 |:---------------:|:-------------------------------:|:--------------------------------------------:|
 | login bypass    | `admin' --`                     | Omzeilt authenticatie; logt in als admin.    |
 | drop attack     | `test'); DROP TABLE users; -- ` | Verwijdert de tabel *users* uit de database. |
+| xss test        | `<script>alert(1)</script>`     | Voeg *alert(1)* uit wanneer de pagina laadt. |
 
 ---
 
