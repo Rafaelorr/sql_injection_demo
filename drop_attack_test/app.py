@@ -13,7 +13,7 @@ def home():
     con:sqlite3.Connection = sqlite3.connect('database.db')
     cur:sqlite3.Cursor = con.cursor()
 
-    cur.executescript(f"INSERT into users (naam,wachtwoord) VALUES('{naam}','{wachtwoord}')")
+    cur.execute(f"INSERT into users (naam,wachtwoord) VALUES('{naam}','{wachtwoord}')")
     print("Voeg gebruiker toe, " + naam)
     con.commit()
 
