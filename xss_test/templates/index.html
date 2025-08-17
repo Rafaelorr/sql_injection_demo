@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Blog</title>
+</head>
+<body>
+    <h1>Mijn Blog</h1>
+    <p>Dit is een eenvoudige blog post. Als je wilt kun je een comment laten!</p>
+    <h2>Comments</h2>
+
+    <form action="/add_comment" method="POST">
+        <label for="comment">Voeg een comment toe:</label><br>
+        <textarea name="comment" id="comment" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Post Comment</button>
+    </form>
+
+    <h3>Alle Comments:</h3>
+
+    {% for comment in comments %}
+    <div>
+        <p>{{ comment | safe }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
