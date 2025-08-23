@@ -31,6 +31,22 @@ def home():
 
   return render_template("home.html")
 
+@app.route("/reset_db")
+def reset_db():
+    con = sqlite3.connect('database.db')
+    cur = con.cursor()
+    cur.execute("DROP TABLE IF EXISTS users")
+    cur.execute("""
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            naam TEXT,
+            wachtwoord TEXT
+        )
+    """)
+    con.commit()
+    con.close()
+    return "Database reset complete."
+
 @app.route("/")
 def hints():
   return render_template("hints.html")
